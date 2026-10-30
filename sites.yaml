@@ -1,0 +1,3 @@
+# 你的订阅列表（模板默认空）——格式见 sites.yaml.example
+# 加好站点后，Actions 会自动抓取并生成 feed.xml
+sources: []
