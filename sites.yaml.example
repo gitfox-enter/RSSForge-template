@@ -1,0 +1,217 @@
+# 参考格式（来自作者的完整订阅列表示例）——把你的条目写进你自己的 sites.yaml
+sites:
+# 原 news.ixbk.net 有反爬 JS 域名白名单，会把 ima 抓取器挡到 new.xianbao.fun 导致解析失败；
+# new.xianbao.fun 是同一站点(线报酷)的白名单镜像域名，ima 可正常解析（已实测）。
+- url: https://new.xianbao.fun/
+  max_pages: 3
+  name: 线报酷
+  tier: high
+  interval: 15
+  fast_check: true
+  js_render: true
+- url: https://xianbao.icu/
+  max_pages: 3
+  name: 线报ICU
+  tier: high
+  interval: 15
+  fast_check: true
+  js_render: true
+- url: https://www.zhuanyes.com/xianbao/
+  max_pages: 3
+  name: 专业线报
+  tier: high
+  interval: 20
+  fast_check: true
+- url: https://xianbaomi.com/
+  max_pages: 3
+  name: 线报迷
+  tier: high
+  interval: 30
+- url: https://v1.xianbao.net/
+  max_pages: 3
+  name: 线报网
+  tier: high
+  interval: 20
+  fast_check: true
+- url: https://yangmao.wang/
+  max_pages: 3
+  name: 羊毛王
+  tier: high
+  interval: 30
+- url: https://www.yangmaodang.club/articles/
+  max_pages: 3
+  name: 羊毛党
+  tier: high
+  interval: 30
+  # 来源页即「最新羊毛」分类页（aria-current="page"），只列羊毛 deal，
+  # 不再用根域名（根页混入了 /things/ 产品评测，且只抽得 6 条）
+- url: https://b1.ymxianbao.cn/
+  max_pages: 3
+  name: 羊毛线报
+  tier: high
+  interval: 30
+- url: https://cjx8.com/
+  max_pages: 3
+  name: 超级线报
+  tier: high
+  interval: 20
+  fast_check: true
+  js_render: true
+- url: https://www.huifabu.cn/
+  max_pages: 3
+  name: 汇发部
+  tier: high
+  interval: 20
+  fast_check: true
+  js_render: true
+- url: https://www.iqnew.com/
+  max_pages: 3
+  name: 爱Q社区
+  tier: high
+  interval: 20
+  fast_check: true
+- url: https://www.12345pro.com/
+  max_pages: 3
+  name: 12345线报
+  tier: high
+  interval: 30
+- url: https://www.huodong8.com/
+  max_pages: 5
+  name: 活动5
+  tier: medium
+  interval: 60
+  js_render: true
+- url: https://www.daydayzhuan.com/
+  max_pages: 5
+  name: 天天赚
+  tier: high
+  interval: 30
+- url: https://www.manmanbuy.com/
+  max_pages: 5
+  name: 慢慢买
+  tier: medium
+  interval: 120
+- url: https://www.baicaio.com/
+  max_pages: 5
+  name: 白菜哦
+  tier: medium
+  interval: 60
+  fast_check: true
+  js_render: true
+- url: https://www.bacaoo.com/
+  max_pages: 5
+  name: 拔草哦
+  tier: medium
+  interval: 60
+- url: https://www.douban.com/group/711811/
+  max_pages: 10
+  name: 豆瓣小组
+  tier: medium
+  interval: 120
+  js_render: true
+- url: https://blog.xianbao.art/
+  max_pages: 5
+  name: 羊毛群
+  tier: high
+  interval: 30
+  fast_check: true
+- url: https://iehou.com/
+  max_pages: 5
+  name: 网猴线报
+  tier: low
+  interval: 360
+  fast_check: true
+  js_render: true
+- url: https://www.hxm5.com/
+  max_pages: 5
+  name: 线报屋
+  tier: low
+  interval: 360
+  fast_check: true
+  js_render: true
+- url: https://www.zuankeba.cn/
+  max_pages: 5
+  name: 赚客吧
+  tier: high
+  interval: 30
+  fast_check: true
+
+  # ===== 新增科技/创业类 RSS 源（2026-08-05） =====
+  # 说明：以下站点均为标准 RSS Feed，走 parse_rss_feed 通用解析器，无需新增 parser
+
+  # 少数派 - 数字生活/效率工具，补充来源多元化
+- url: https://sspai.com/
+  name: 少数派
+  tier: medium
+  interval: 60
+  parser: rss
+  rss_feed: https://sspai.com/feed
+
+  # ===== 新增科技/创业类 RSS 源（2026-08-12 第2批）=====
+  # 说明：以下站点均为标准 RSS，走 parse_rss_feed，无需新增 parser
+
+dead_sites:
+  https://www.007ymd.com/:
+    reason: DNS/连接失败 - 域名无法解析
+    confirmed_at: '2026-07-06'
+    test_result: NameResolutionError - 域名无法解析
+  https://907k.cn/:
+    reason: DNS/连接失败
+    confirmed_at: '2026-06-10'
+    test_result: HTTP 000 - 无法建立连接
+  http://www.xiaodigu.com/:
+    reason: 服务器 502 错误
+    confirmed_at: '2026-06-10'
+    test_result: HTTP 502 Bad Gateway
+  https://www.ym2.cc/:
+    reason: DNS/连接失败
+    confirmed_at: '2026-06-10'
+    test_result: HTTP 000 - 域名无法解析
+  https://79tao.linejia.com/:
+    reason: 连接失败(Connection refused)
+    confirmed_at: '2026-06-12'
+    test_result: Connection refused
+  https://www.0818tuan.com/:
+    reason: 连接失败(Connection refused)
+    confirmed_at: '2026-06-12'
+    test_result: Connection refused
+  http://79tao.linejia.com/:
+    reason: 连接失败(Connection refused)
+    confirmed_at: '2026-06-12'
+    test_result: Connection refused
+  http://www.0818tuan.com/:
+    reason: 连接失败(Connection refused)
+    confirmed_at: '2026-06-12'
+    test_result: Connection refused
+  https://www.foxirj.com/:
+    reason: RSS Feed 为空，网站可能已停止更新或 RSS 服务已下线
+    confirmed_at: '2026-07-12'
+    test_result: RSS Feed 内容为空（0 条目）
+  https://www.51kanong.com/:
+    reason: 启用 JS 渲染后 Feed 仍为空，网站可能已关闭 RSS 输出
+    confirmed_at: '2026-07-12'
+    test_result: js_render 模式下 Feed 仍为空（0 条目）
+  https://www.mefcl.com/:
+    reason: 站点无法访问（空响应），Feed 内容为空
+    confirmed_at: '2026-07-12'
+    test_result: HTTP 空响应，Feed 0 条目
+  https://www.huodong5.com/:
+    reason: 域名已停用，原 Feed 公告迁移至 www.huodong8.com
+    confirmed_at: '2026-07-12'
+    test_result: Feed 首条即为迁移公告
+  https://yrxq.xliangxi.vip/:
+    reason: 启用 JS 渲染后 Feed 仅 2 条且均为导航内容，网站可能已关闭
+    confirmed_at: '2026-07-12'
+    test_result: JS 渲染后 Feed 内容为空/导航，仅 2 条
+  https://xzba.cc/:
+    reason: 自动维护引擎判定为硬死站（CONN_TIMEOUT）
+    confirmed_at: '2026-07-14'
+    test_result: '[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure
+      (_ssl.c:1016)'
+    name: 新赚吧
+  https://www.ghxi.com/:
+    reason: 自动维护引擎判定为硬死站（CONN_TIMEOUT）
+    confirmed_at: '2026-07-15'
+    test_result: TLS/SSL connection has been closed (EOF) (_ssl.c:992)
+    name: 果核剥壳
+
